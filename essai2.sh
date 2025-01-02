@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "premier script" > /tmp/premier.txt
+echo "premier script" > /tmp/premieree.txt
