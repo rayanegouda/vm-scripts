@@ -11,14 +11,12 @@ sudo apt install -y xrdp xfce4 xfce4-terminal dbus-x11 x11-xserver-utils
 
 # Mettre le clavier en fr
 echo "🔹 Configuration du clavier en fr ...."
-sudo apt update && sudo apt install -y console-data
-sudo localectl set-keymap fr
-sudo localectl set-x11-keymap fr
+echo "setxkbmap fr" | sudo tee ~/.xsessionrc  > /dev/null
 
 echo "🔹 Configuration de XRDP..."
 echo "xfce4-session" | sudo tee /etc/skel/.xsession > /dev/null
 echo "xfce4-session" | sudo tee ~/.xsession > /dev/null
-echo "setxkbmap fr" | sudo tee ~/.xsessionrc  > /dev/null
+
 
 # Ajouter l'utilisateur XRDP au groupe SSL-cert pour éviter les erreurs de connexion
 sudo adduser xrdp ssl-cert
