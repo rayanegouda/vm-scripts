@@ -19,6 +19,7 @@ echo "xfce4-session" | sudo tee ~/.xsession > /dev/null
 
 # Ajouter l'utilisateur XRDP au groupe SSL-cert pour éviter les erreurs de connexion
 sudo adduser xrdp ssl-cert
+sudo adduser ubuntu ssl-cert
 
 # Modifier startwm.sh pour utiliser XFCE4 avec xRDP
 echo -e "#\!/bin/bash\nexec startxfce4" | sudo tee /etc/xrdp/startwm.sh > /dev/null
