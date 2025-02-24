@@ -21,7 +21,7 @@ echo "xfce4-session" | sudo tee ~/.xsession > /dev/null
 sudo adduser xrdp ssl-cert
 
 # Modifier startwm.sh pour utiliser XFCE4 avec xRDP
-echo -e "#!/bin/bash\nexec startxfce4" | sudo tee /etc/xrdp/startwm.sh > /dev/null
+echo -e "#\!/bin/bash\nexec startxfce4" | sudo tee /etc/xrdp/startwm.sh > /dev/null
 
 # Appliquer les bonnes permissions
 sudo chmod +x /etc/xrdp/startwm.sh
