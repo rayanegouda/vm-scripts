@@ -9,9 +9,6 @@ sudo apt update && sudo apt upgrade -y
 echo "🔹 Installation de l'environnement graphique XFCE4..."
 sudo apt install -y xrdp xfce4 xfce4-terminal dbus-x11 x11-xserver-utils
 
-# Mettre le clavier en fr
-echo "🔹 Configuration du clavier en fr ...."
-echo "setxkbmap fr" | sudo tee ~/.xsessionrc  > /dev/null
 
 echo "🔹 Configuration de XRDP..."
 echo "xfce4-session" | sudo tee /etc/skel/.xsession > /dev/null
@@ -29,6 +26,10 @@ sudo systemctl restart xrdp
 echo "🔹 Configuration du pare-feu UFW..."
 sudo ufw allow 3389/tcp
 sudo ufw reload
+
+# Mettre le clavier en fr
+echo "🔹 Configuration du clavier en fr ...."
+echo "setxkbmap fr" | sudo tee ~/.xsessionrc  > /dev/null
 
 # Définir un mot de passe pour l'utilisateur Ubuntu (modifiable)
 echo "ubuntu:ubuntu" | sudo chpasswd
