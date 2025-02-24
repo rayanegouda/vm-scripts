@@ -20,9 +20,15 @@ echo "xfce4-session" | sudo tee ~/.xsession > /dev/null
 # Ajouter l'utilisateur XRDP au groupe SSL-cert pour éviter les erreurs de connexion
 sudo adduser xrdp ssl-cert
 
-# Activer et redémarrer XRDP
+# Modifier startwm.sh pour utiliser XFCE4 avec xRDP
+echo -e "#!/bin/bash\nexec startxfce4" | sudo tee /etc/xrdp/startwm.sh > /dev/null
+
+# Appliquer les bonnes permissions
+sudo chmod +x /etc/xrdp/startwm.sh
+
+# Activer et redémarrer les services XRDP
 sudo systemctl enable xrdp
-sudo systemctl restart xrdp
+sudo systemctl restart xrdp xrdp-sesman
 
 # Ouvrir le port 3389 (RDP) dans le firewall UFW
 echo "🔹 Configuration du pare-feu UFW..."
