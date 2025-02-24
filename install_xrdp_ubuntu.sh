@@ -39,6 +39,3 @@ echo "ubuntu:ubuntu" | sudo chpasswd
 # Activer l'authentification par mot de passe SSH pour faciliter l'accès
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 sudo systemctl restart ssh
-
-echo "✅ Installation terminée. Redémarrage en cours..."
-sudo reboot
